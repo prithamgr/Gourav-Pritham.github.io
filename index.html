@@ -255,28 +255,22 @@
     </section>
     <section class="certificates" id="certificates">
         <h2 class="heading">My <span>Certificates</span></h2>
-        <div class="certificates-container">
-            <div class="certificate-box">
-                <img src="Certicates/Certi4.jpg" alt="Certificate 1">
+        
+        <div id="slider-container">
+            <div id="slider">
+                <img class="slide" src="Certicates/Certi4.jpg" alt="Image 1">
+                <img class="slide" src="/Certicates/Certi3.jpg" alt="Image 2">
+                <img class="slide" src="/Certicates/erti1.png" alt="Image 3">
+                <img class="slide" src="/Certicates/Certi5.jpg" alt="Image 4">
+                <img class="slide" src="/Certicates/Certi6.jpg" alt="Image 5">
+                <img class="slide" src="/Certicates/Certi7.jpg" alt="Image 6">
+                <img class="slide" src="/Certicates/Certi8.jpg" alt="Image 7">
             </div>
-            <div class="certificate-box">
-                <img src="Certicates/Certi3.jpg" alt="Certificate 2">
-            </div>
-            <div class="certificate-box">
-                <img src="Certicates/erti1.png" alt="Certificate 3">
-            </div>
-            <div class="certificate-box">
-                <img src="Certicates/Certi5.jpg" alt="Certificate 4">
-            </div>
-            <div class="certificate-box">
-                <img src="Certicates/Certi6.jpg" alt="Certificate 4">
-            </div>
-            <div class="certificate-box">
-                <img src="Certicates/Certi7.jpg" alt="Certificate 4">
-            </div>
-            <div class="certificate-box">
-                <img src="Certicates/Certi8.jpg" alt="Certificate 4">
-            </div>
+        </div>
+          
+        <div class="btn-container1">
+            <button class="btn1" onclick="changeSlide(-1)">Previous</button>
+            <button class="btn1" onclick="changeSlide(1)">Next</button>
         </div>
     </section>
     <footer class="footer">
@@ -321,6 +315,17 @@
     }
 
 
+    </script>
+    <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const slider = document.getElementById('slider');
+    function changeSlide(offset) {
+        currentIndex = (currentIndex + offset + totalSlides) % totalSlides;
+        const position = -currentIndex * 100;
+        slider.style.transform = `translateX(${position}%)`;
+    }
     </script>
 </body>
 </html>
